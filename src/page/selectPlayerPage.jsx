@@ -5,8 +5,12 @@ import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
 import CircleIcongrey from "../assets/Oval Copy-grey.png";
 import ButtonComp from "../component/ButtonComp";
 import { Link } from "react-router-dom";
-const SelectPlayerPage = () => {
-  const [playerOneMark, SelectPlayerOneMark] = useState("x");
+const SelectPlayerPage = ({
+  playerOneMark,
+  setPlayerOneMark,
+  playerTwoMark,
+  setPlayerTwoMark,
+}) => {
   const [newGame, setNewgame] = useState("player");
   return (
     <main
@@ -29,7 +33,7 @@ const SelectPlayerPage = () => {
         <div className="bg-[#1a2a33] p-[10px] flex items-center justify-between rounded-[15px] w-full">
           <button
             type="button"
-            onClick={() => SelectPlayerOneMark("x")}
+            onClick={() => setPlayerOneMark("x")}
             className={`w-[45%] p-[10px] ${
               playerOneMark == "x" ? "bg-[#a8bfc9]" : "bg-none"
             } border-none flex items-center justify-center cursor-pointer hover:bg-[#1f3641] hover:shadow-[0_5px_0_rgba(0,0,0,0.25)] rounded-[10px]`}
@@ -38,7 +42,7 @@ const SelectPlayerPage = () => {
           </button>
           <button
             type="button"
-            onClick={() => SelectPlayerOneMark("o")}
+            onClick={() => setPlayerOneMark("o")}
             className={`w-[45%] p-[10px] ${
               playerOneMark == "o" ? "bg-[#a8bfc9]" : "bg-none"
             } border-none flex items-center justify-center cursor-pointer hover:bg-[#1f3641] hover:shadow-[0_5px_0_rgba(0,0,0,0.25)] rounded-[10px]`}
