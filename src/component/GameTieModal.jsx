@@ -3,12 +3,12 @@ import Cross from "../assets/CombinedShapeCopy.png";
 import CircleIcon from "../assets/Oval Copy.png";
 import { Link } from "react-router-dom";
 
-const WinnersModalComp = ({handleNextRound, playerTurn}) => {
+const GameTieModal = ({handleNextRound, playerTurn}) => {
   
   return (
     <div className="fixed w-full">
       <div className="bg-gray-800 text-center shadow-xl ">
-        <p className="text-sm text-gray-400 font-semibold py-6">YOU WON!</p>
+        <p className="text-sm text-gray-400 font-semibold py-6">THIS ROUND WAS A TIE!</p>
 
         <div className="flex items-center justify-center text-4xl font-bold gap-2">
           {
@@ -19,7 +19,7 @@ const WinnersModalComp = ({handleNextRound, playerTurn}) => {
           }
         
           <span className="text-cyan-300 text-2xl uppercase">
-            takes the round
+            takes the next round
           </span>
         </div>
 
@@ -40,4 +40,4 @@ const WinnersModalComp = ({handleNextRound, playerTurn}) => {
   );
 };
 
-export default WinnersModalComp;
+export default GameTieModal;
