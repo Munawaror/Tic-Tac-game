@@ -4,6 +4,8 @@ import CircleIcon from "../assets/Oval Copy.png";
 import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
 import { GrPowerReset } from "react-icons/gr";
 import WinnersModalComp from "../component/WinnersModalComp";
+import ResetGameModal from "../component/ResetGameModal";
+import GameTieModal from "../component/GameTieModal";
 const Game = ({
   playerOneMark,
   setPlayerOneMark,
@@ -11,13 +13,28 @@ const Game = ({
   setPlayerTwoMark,
 }) => {
   const [showModal, setShowModal] = useState(false);
-  const [gameButtons, setGameButtons] = useState(
-    Array.from(Array(9).fill(" "))
-  );
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [showTieModal, setShowTieModal] = useState(false);
+  const [gameButtons, setGameButtons] = useState(Array.from(Array(9).fill("")));
   const [playerTurn, setPlayerTurn] = useState("X");
   const [playerXScore, setPlayerXScore] = useState(0);
   const [playerOScore, setPlayerOScore] = useState(0);
   const [ties, setTies] = useState(0);
+
+  const handleYesReset = () => {
+    setPlayerTurn("X");
+    setPlayerXScore(0)
+    setPlayerOScore(0)
+    setTies(0)
+    setGameButtons(Array.from(Array(9).fill("")))
+    setShowResetModal(false);
+  };
+
+  const handleNextRound = () =>{
+      setGameButtons(Array.from(Array(9).fill("")))
+      setShowModal(false)
+      setShowTieModal(false)
+  }
 
   const checkPlayerThatWins = (buttons) => {
     const arrayOfWinnings = [
@@ -47,6 +64,12 @@ const Game = ({
   };
   const winner = checkPlayerThatWins(gameButtons);
 
+  const checkForTie = (buttons, winner) => {
+    if (buttons.every((item) => item !== "") && !winner) {
+      setTies(ties + 1);
+      setShowTieModal(true);
+    }
+  };
   useEffect(() => {
     if (winner == "X") {
       setPlayerXScore(playerXScore + 1);
@@ -63,9 +86,12 @@ const Game = ({
     playerTurn == playerOneMark
       ? setPlayerTurn(playerTwoMark)
       : setPlayerTurn(playerOneMark);
+    checkForTie(gameButtons, winner);
   };
 
-
+  const handleResetGame = () => {
+    setShowResetModal(!showResetModal);
+  };
   return (
     <main
       className="w-full max-w-[375px] h-auto mx-auto flex flex-col items-center
@@ -87,7 +113,11 @@ const Game = ({
 
           <h2 className="text-[#a8bfc9] text-[1rem] font-bold ">TURN</h2>
         </button>
-        <button className="border-none bg-[#a8bfc9] w-8 h-8 px-2 rounded-[6px] shadow-[0_5px_0_#4B5563]">
+        <button
+          type="button"
+          onClick={handleResetGame}
+          className="border-none bg-[#a8bfc9] w-8 h-8 px-2 rounded-[6px] shadow-[0_5px_0_#4B5563]"
+        >
           <GrPowerReset />
         </button>
       </div>
@@ -96,6 +126,7 @@ const Game = ({
           <button
             type="button"
             onClick={() => handleButtonClick(i)}
+            disabled={button !== ''}
             className="bg-gray-700 h-18 rounded-lg w-20 shadow-[0_5px_0_rgba(0,0,0,0.25)] flex items-center justify-center"
           >
             {gameButtons[i] == "O" && (
@@ -136,13 +167,19 @@ const Game = ({
           X (YOU)<span className="text-xl">{playerXScore}</span>
         </button>
         <button className="bg-blue-300 flex flex-col py-1 font-bold rounded-lg w-24">
-          TIES <span className="text-xl">0</span>
+          TIES <span className="text-xl">{ties}</span>
         </button>
         <button className="bg-yellow-400 flex flex-col py-1 rounded-lg font-bold w-24">
           O (CPU) <span className="text-xl">{playerOScore}</span>
         </button>
       </div>
-      {showModal == true ? <WinnersModalComp /> : null}
+      {showModal == true ? <WinnersModalComp handleNextRound={handleNextRound} playerTurn={winner} /> : null}
+      {showResetModal == true ? (
+        <ResetGameModal handleResetGame={handleResetGame} handleYesReset={handleYesReset} />
+      ) : null}
+      {
+        showTieModal == true ? <GameTieModal handleNextRound={handleNextRound} playerTurn={playerTurn}/> : null
+      }
       {/* if it is true then render the component */}
       {/* {showModal && <WinnersModalComp />} */}
     </main>
