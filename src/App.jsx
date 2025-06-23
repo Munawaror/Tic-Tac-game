@@ -11,7 +11,8 @@ function App() {
     <main className="w-full h-screen bg-[#282c34] flex items-center justify-center">
       <Routes>
         <Route path="/" element={<SelectPlayerPage setPlayerOneMark={setPlayerOneMark} playerOneMark={playerOneMark} setPlayerTwoMark={setPlayerTwoMark} playerTwoMark={playerTwoMark}/>}/>
-        <Route path="game" element={<Game setPlayerOneMark={setPlayerOneMark} playerOneMark={playerOneMark} setPlayerTwoMark={setPlayerTwoMark} playerTwoMark={playerTwoMark}/>}/>
+         <Route path="/select-player" element={<SelectPlayerPage setPlayerOneMark={setPlayerOneMark} playerOneMark={playerOneMark} setPlayerTwoMark={setPlayerTwoMark} playerTwoMark={playerTwoMark}/>}/>
+        <Route path="/game" element={<Game setPlayerOneMark={setPlayerOneMark} playerOneMark={playerOneMark} setPlayerTwoMark={setPlayerTwoMark} playerTwoMark={playerTwoMark}/>}/>
       </Routes>
       
 

@@ -47,16 +47,16 @@ const Game = ({
   };
   const winner = checkPlayerThatWins(gameButtons);
 
-
   useEffect(() => {
     if (winner == "X") {
       setPlayerXScore(playerXScore + 1);
-      setShowModal(true)
+      setShowModal(true);
     } else if (winner == "O") {
       setPlayerOScore(playerOScore + 1);
-       setShowModal(true)
+      setShowModal(true);
     }
   }, [winner]);
+
   const handleButtonClick = (i) => {
     playerTurn == "O" ? (gameButtons[i] = "O") : (gameButtons[i] = "X");
     setGameButtons(gameButtons);
@@ -64,6 +64,7 @@ const Game = ({
       ? setPlayerTurn(playerTwoMark)
       : setPlayerTurn(playerOneMark);
   };
+
 
   return (
     <main
@@ -81,7 +82,7 @@ const Game = ({
             <img src={CrossIcongrey} alt="CrossIcongrey" className="w-4 h-4" />
           )}
           {playerTurn == "O" && (
-            <img src={CrossIcon} alt="CrossIcongrey" className="w-4 h-4" />
+            <img src={CircleIcon} alt="Circle Icon" className="w-4 h-4" />
           )}
 
           <h2 className="text-[#a8bfc9] text-[1rem] font-bold ">TURN</h2>
