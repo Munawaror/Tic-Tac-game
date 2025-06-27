@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-// import CrossIcon from "../assets/CombinedShapeCopy.png";
+// import CrossIcon from '../assets/CombinedShapeCopy.png';
 // import CircleIcon from "../assets/Oval Copy.png";
 // import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
 import { GrPowerReset } from "react-icons/gr";
 import WinnersModalComp from "../component/WinnersModalComp";
 import ResetGameModal from "../component/ResetGameModal";
 import GameTieModal from "../component/GameTieModal";
-const CrossIcon = require("../assets/CombinedShapeCopy.png")
-const CircleIcon = require("../assets/Oval Copy.png");
-const CrossIcongrey = require("../assets/Combined Shape Copy 2.png")
+// const CrossIcon = require("../assets/CombinedShapeCopy.png")
+// const CircleIcon = require("../assets/Oval Copy.png");
+// const CrossIcongrey = require("../assets/Combined Shape Copy 2.png")
 const Game = ({
   playerOneMark,
   setPlayerOneMark,
@@ -103,15 +103,15 @@ const Game = ({
       <div className="w-full flex items-center justify-between gap-1 px-12">
         <div className="flex">
           {" "}
-          <img src={CrossIcon} alt="Cross Icon" className="w-6 h-6" />
-          <img src={CircleIcon} alt="Circle Icon" className="w-6 h-6" />
+          <img src='/assets/CombinedShapeCopy.png' alt="Cross Icon" className="w-6 h-6" />
+          <img src='/assets/Oval Copy.png' alt="Circle Icon" className="w-6 h-6" />
         </div>
         <button className="border-none bg-[#1f3641] flex items-center gap-2 cursor-pointer  shadow-[0_5px_0_rgba(0,0,0,0.25)] rounded-[10px] w-30 h-10 px-3.5">
           {playerTurn == "X" && (
-            <img src={CrossIcongrey} alt="CrossIcongrey" className="w-4 h-4" />
+            <img src='/assets/Combined Shape Copy 2.png' alt="CrossIcongrey" className="w-4 h-4" />
           )}
           {playerTurn == "O" && (
-            <img src={CircleIcon} alt="Circle Icon" className="w-4 h-4" />
+            <img src='/assets/Oval Copy.png' alt="Circle Icon" className="w-4 h-4" />
           )}
 
           <h2 className="text-[#a8bfc9] text-[1rem] font-bold ">TURN</h2>
@@ -133,10 +133,10 @@ const Game = ({
             className="bg-gray-700 h-18 rounded-lg w-20 shadow-[0_5px_0_rgba(0,0,0,0.25)] flex items-center justify-center"
           >
             {gameButtons[i] == "O" && (
-              <img src={CircleIcon} alt="CrossIcongrey" className="w-4 h-4" />
+              <img src='/assets/Oval Copy.png' alt="CrossIcongrey" className="w-4 h-4" />
             )}
             {gameButtons[i] == "X" && (
-              <img src={CrossIcon} alt="CrossIcongrey" className="w-4 h-4" />
+              <img src='/assets/CombinedShapeCopy.png' alt="CrossIcongrey" className="w-4 h-4" />
             )}
           </button>
         ))}
