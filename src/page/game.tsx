@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import CrossIcon from "../assets/CombinedShapeCopy.png";
-import CircleIcon from "../assets/Oval Copy.png";
-import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
+// import CrossIcon from "../assets/CombinedShapeCopy.png";
+// import CircleIcon from "../assets/Oval Copy.png";
+// import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
 import { GrPowerReset } from "react-icons/gr";
 import WinnersModalComp from "../component/WinnersModalComp";
 import ResetGameModal from "../component/ResetGameModal";
 import GameTieModal from "../component/GameTieModal";
+const CrossIcon = require("../assets/CombinedShapeCopy.png")
+const CircleIcon = require("../assets/Oval Copy.png");
+const CrossIcongrey = require("../assets/Combined Shape Copy 2.png")
 const Game = ({
   playerOneMark,
   setPlayerOneMark,

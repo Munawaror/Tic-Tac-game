@@ -2,8 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import SelectPlayerPage from "./page/selectPlayerPage";
 import { useState } from "react";
-import Game from "./page/Game";
 import GameVsCpu from "./page/GameVsCpu";
+import Game from "./page/game";
+
+
 
 
 
