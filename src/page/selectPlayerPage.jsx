@@ -5,13 +5,15 @@ import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
 import CircleIcongrey from "../assets/Oval Copy-grey.png";
 import ButtonComp from "../component/ButtonComp";
 import { Link } from "react-router-dom";
+
 const SelectPlayerPage = ({
   playerOneMark,
   setPlayerOneMark,
   playerTwoMark,
   setPlayerTwoMark,
+  setNewgame
 }) => {
-  const [newGame, setNewgame] = useState("player");
+
   return (
     <main
       className="w-full max-w-[375px] h-auto mx-auto flex flex-col items-center
@@ -57,7 +59,7 @@ const SelectPlayerPage = ({
       </section>
       {/* button group */}
       <div className="flex flex-col w-full gap-4">
-        <Link to="/game">
+        <Link to="game-vs-cpu">
           <ButtonComp
             text="NEW GAME (VS CPU)"
             bg="#F2B137"
@@ -65,7 +67,7 @@ const SelectPlayerPage = ({
             onClick={() => setNewgame("cpu")}
           />
         </Link>
-        <Link to="/game">
+        <Link to="game">
           <ButtonComp
             text="NEW GAME (VS PLAYER)"
             bg="#31C3BD"
