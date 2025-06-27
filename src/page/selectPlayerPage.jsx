@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import CrossIcon from "../assets/CombinedShapeCopy.png";
-import CircleIcon from "../assets/Oval Copy.png";
-import CrossIcongrey from "../assets/Combined Shape Copy 2.png";
-import CircleIcongrey from "../assets/Oval Copy-grey.png";
 import ButtonComp from "../component/ButtonComp";
 import { Link } from "react-router-dom";
+const CrossIcon = require( "../assets/CombinedShapeCopy.png");
+const CircleIcon = require( "../assets/Oval Copy.png");
+const CrossIcongrey = require( "../assets/Combined Shape Copy 2.png");
+const CircleIcongrey = require( "../assets/Oval Copy-grey.png");
 
 const SelectPlayerPage = ({
   playerOneMark,

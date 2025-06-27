@@ -3,7 +3,8 @@ import "./App.css";
 import SelectPlayerPage from "./page/selectPlayerPage";
 import { useState } from "react";
 import GameVsCpu from "./page/GameVsCpu";
-import Game from "./page/Game";
+import Game from "./page/game";
+
 
 
 

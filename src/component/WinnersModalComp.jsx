@@ -1,7 +1,9 @@
 import React from "react";
-import Cross from "../assets/CombinedShapeCopy.png";
-import CircleIcon from "../assets/Oval Copy.png";
+// import Cross from "../assets/CombinedShapeCopy.png";
+// import CircleIcon from "../assets/Oval Copy.png";
 import { Link } from "react-router-dom";
+const Cross = require("../assets/CombinedShapeCopy.png");
+const CircleIcon = require("../assets/Oval Copy.png");
 
 const WinnersModalComp = ({handleNextRound, playerTurn}) => {
   
